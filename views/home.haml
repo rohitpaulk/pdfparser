@@ -1,0 +1,10 @@
+!!!
+%html
+	%head
+	%body
+		%section.intro
+			Hello WOrld!
+		%section.uploadform
+			%form{:method => "POST",:action => "/upload", :enctype => "multipart/form-data"}
+				%input{:type => "file", :name => "thepdffile"}
+				%button{:type => "submit"} Upload!

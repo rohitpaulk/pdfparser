@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'sinatra', '1.4.5'
-gem 'pdf-reader', '1.3.3'
+# pdf-reader can't render text, monkey patching it is.
+gem "pdf-reader", :path => "./gems/pdf-reader-master"
+gem 'haml'

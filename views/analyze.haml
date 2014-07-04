@@ -1,0 +1,29 @@
+!!!
+%html
+	%head
+	%body
+		%section.intro
+			Hello World!
+		%section.info
+			%p 
+				= "This is an analysis of #{File.basename(@file)}"
+			%table
+				%tr
+					%td PDF Version
+					%td 
+						= @reader.pdf_version
+				%tr
+					%td Info
+					%td 
+						= @reader.info
+				%tr
+					%td Meta Data
+					%td 
+						= @reader.metadata
+				%tr
+					%td Page Count
+					%td 
+						= @reader.page_count
+			%section.pagetext						
+				= @reader.pages[0].text
+			
