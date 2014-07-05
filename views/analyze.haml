@@ -1,29 +1,51 @@
 !!!
 %html
 	%head
+		%link{:rel => "stylesheet", :href => "/styles.css"}
+		%meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
 	%body
-		%section.intro
-			Hello World!
-		%section.info
-			%p 
-				= "This is an analysis of #{File.basename(@file)}"
-			%table
-				%tr
-					%td PDF Version
-					%td 
-						= @reader.pdf_version
-				%tr
-					%td Info
-					%td 
-						= @reader.info
-				%tr
-					%td Meta Data
-					%td 
-						= @reader.metadata
-				%tr
-					%td Page Count
-					%td 
-						= @reader.page_count
-			%section.pagetext						
-				= @reader.pages[0].text
-			
+		%div.wrapper.home-header-wrapper
+			%section.container.home-header-container
+				%h1 PDF
+				%h1 PARSER
+			%section.container.analyze-words-container
+				%header
+					%img{:src => "images/pdf.png", :width => "75"}
+					%h2 
+						= File.basename(@file)
+				%p.analysis 
+					= "#{File.basename(@file)} uses PDF version number #{@reader.pdf_version} and has #{@reader.page_count} pages."
+				%h3 Raw Data
+				%table
+					%tr#pdfversion
+						%td PDF Version
+						%td 
+							= @reader.pdf_version || "No Information"
+					- @reader.info.each do |k,v|
+						%tr
+							%td
+								= k
+							%td
+								= v || "No Information"
+					%tr
+						%td MetaData
+						%td 
+							= @reader.metadata || "No Information"
+					%tr
+						%td Page Count
+						%td 
+							= @reader.page_count || "No Information"
+				/%p.viewrawtext <a href="#">Click here</a> to view the raw text page by page.
+			%section.container.home-questions-container
+				%article
+					%header
+						Why only small files?
+					%content
+						That's coz I don't want to keep you waiting! I'm kidding. Heroku has a time limit of 30 seconds for a request to complete.
+				%article
+					%header
+						What is this site built with?
+					%content
+						I've used <a href="#">Sinatra</a> as the web framework, and <a href="#">pdf-reader</a> for the PDF processing. The entire source is available on <a href="#">Github</a>.
+
+		

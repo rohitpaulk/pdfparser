@@ -1,9 +1,14 @@
 require 'sinatra'
 require 'fileutils'
 require 'pdf-reader'
+require 'sass'
 
 get '/' do
 	haml :home
+end
+
+get '/styles.css' do
+	scss "scss/main".to_sym
 end
 
 post '/upload' do
@@ -19,11 +24,15 @@ post '/upload' do
 end
 
 get '/analyze' do
+	
 	if Dir.glob("./tmp/*.pdf").length == 0		
 		return "Oopsy, can't find any pdf files. Try <a href='/''>uploading</a> again?"		
 	end
-
-	@file = Dir.glob("./tmp/*.pdf").first		
+	if params[:default]
+		@file = "./public/RspecBook.pdf"
+	else
+		@file = Dir.glob("./tmp/*.pdf").first		
+	end
 	@reader = PDF::Reader.new(@file)
 	haml :analyze	
 end

@@ -1,0 +1,61 @@
+.container.analyze-words-container{
+    border-bottom: 1px solid $lightborder;
+    padding:10px 10px 40px 10px;
+    
+}
+.container.analyze-words-container header{
+    padding-top:40px;
+    padding-bottom:40px;
+    
+}
+
+.container.analyze-words-container header img{
+    display:inline-block;
+    vertical-align: middle;
+}
+.container.analyze-words-container header h2{
+    display:inline-block;
+    vertical-align: middle;
+}
+.container.analyze-words-container p.analysis{
+    font-size:20px;
+}
+.container.analyze-words-container p.viewrawtext{
+    font-size:20px;
+    padding-top: 30px;
+}
+
+.container.analyze-words-container h3{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.container.analyze-words-container table{
+    border-collapse: collapse;
+    
+}
+.container.analyze-words-container table,td,tr{
+    border:1px solid $lightborder;
+    transition:0.2s background-color;
+}
+.container.analyze-words-container table td{
+    padding:10px;
+}
+.container.analyze-words-container table tr td:first-child{
+    font-weight:normal;
+}
+.container.analyze-words-container table tr:hover{
+    background-color:$greyfont;
+    color:white;
+}
+
+/* Responsive Stuff */
+
+.container.analyze-words-container table{
+    
+    @media screen and (max-width: $break-large) {
+        
+    }    
+    @media screen and (max-width: $break-small) {
+        margin:auto;
+    }
+}

@@ -1,0 +1,41 @@
+.container.home-header-container{
+    padding-top:20px;
+    padding-bottom:20px;        
+    font-family: "OpenSans";
+    border-bottom: 1px solid $lightborder;
+}
+.container.home-header-container h1{
+    font-size:22px;
+    font-weight:100;
+    color:$greyfont;
+    line-height: 100%;
+}
+
+$break-small: 480px;
+$break-large: 800px;
+
+/* Responsive Stuff */
+
+.container.home-header-container{
+    text-align: left;    
+    @media screen and (max-width: $break-large) {
+        text-align: center;    
+    }
+    
+    @media screen and (max-width: $break-small) {
+        text-align: center;
+    }
+
+}
+.container.home-header-container h1{
+            
+    display:block;
+    @media screen and (max-width: $break-large) {
+        display:inline;
+    }
+    
+    @media screen and (max-width: $break-small) {
+        display:inline;
+    }
+}
+

@@ -1,0 +1,56 @@
+html{
+    background-color: $bluebg;
+}
+
+@mixin container($width) {
+    width:$width;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+}
+
+@mixin wrapper($width){
+    width:100%;
+    min-width: $width;
+}
+
+@mixin containerfluid {
+    display:block;
+    width:100%;    
+    margin:0px;
+}
+
+@mixin wrapperfluid{
+    width:100%;
+    min-width: 0;
+}
+
+.wrapper
+{
+    @include wrapper(800px);
+}
+
+.container
+{
+    @include container(800px);
+}
+
+@media screen and (max-width: 800px) {
+    .container{
+        @include containerfluid;
+    }
+    .wrapper
+    {
+        @include wrapperfluid;
+    }
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
