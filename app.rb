@@ -13,11 +13,15 @@ end
 
 post '/upload' do
 	if params[:thepdffile]
-		FileUtils.rm_rf("./tmp/.")
-		File.open("./tmp/#{params[:thepdffile][:filename]}", 'w') do |f|
-    	f.write(params[:thepdffile][:tempfile].read)
-  	end
-  	redirect '/analyze'
+		if File.extname(params[:thepdffile][:filename]) == ".pdf"
+			FileUtils.rm_rf("./tmp/.")
+			File.open("./tmp/#{params[:thepdffile][:filename]}", 'w') do |f|
+	    		f.write(params[:thepdffile][:tempfile].read)
+	    	end
+	    	redirect '/analyze'
+	    else
+	    	return "Only PDFs please!"
+	    end  	
 	else
 		return "Oopsy, you haven't uploaded a file!"		
 	end
