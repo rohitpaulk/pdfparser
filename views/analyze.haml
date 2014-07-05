@@ -6,8 +6,10 @@
 	%body
 		%div.wrapper.home-header-wrapper
 			%section.container.home-header-container
-				%h1 PDF
-				%h1 PARSER
+				%h1 
+					%a{:href=> "/"} PDF
+				%h1 
+					%a{:href=> "/"} PARSER
 			%section.container.analyze-words-container
 				%header
 					%img{:src => "images/pdf.png", :width => "75"}
@@ -35,6 +37,7 @@
 						%td Page Count
 						%td 
 							= @reader.page_count || "No Information"
+				%p.oncemore Want to go back and <a href="/">try another one?</a>
 				/%p.viewrawtext <a href="#">Click here</a> to view the raw text page by page.
 			%section.container.home-questions-container
 				%article
@@ -46,6 +49,6 @@
 					%header
 						What is this site built with?
 					%content
-						I've used <a href="#">Sinatra</a> as the web framework, and <a href="#">pdf-reader</a> for the PDF processing. The entire source is available on <a href="#">Github</a>.
+						I've used <a href="http://www.sinatrarb.com/">Sinatra</a> as the web framework, and <a href="https://github.com/yob/pdf-reader">pdf-reader</a> for the PDF processing. The entire source is available on <a href="https://github.com/rohitpaulk/pdfparser">Github</a>.
 
 		

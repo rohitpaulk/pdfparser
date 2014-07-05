@@ -11,7 +11,7 @@ get '/styles.css' do
 	scss "scss/main".to_sym
 end
 
-post '/upload' do
+post '/' do
 	if params[:thepdffile]
 		if File.extname(params[:thepdffile][:filename]) == ".pdf"
 			FileUtils.rm_rf("./tmp/.")

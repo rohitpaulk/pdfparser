@@ -4,11 +4,15 @@
     font-family: "OpenSans";
     border-bottom: 1px solid $lightborder;
 }
-.container.home-header-container h1{
+.container.home-header-container h1 a{
     font-size:22px;
     font-weight:100;
     color:$greyfont;
     line-height: 100%;
+    text-decoration: none;
+    &:hover{
+        color:$greyfont;
+    }
 }
 
 $break-small: 480px;

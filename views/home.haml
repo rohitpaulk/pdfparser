@@ -6,25 +6,27 @@
 	%body
 		%div.wrapper.home-header-wrapper
 			%section.container.home-header-container
-				%h1 PDF
-				%h1 PARSER
+				%h1 
+					%a{:href=> "/"} PDF
+				%h1 
+					%a{:href=> "/"} PARSER
 			%section.container.home-upload-container.clearfix
 				%section.mascot-box
 					%img{:src => "images/spongebob.png"}
 				%section.upload-box
 					%p.instructions Upload a <a href="#whysmall">small</a> PDF file, and I'll tell you a few secrets about it.
-					%form{:method => "POST", :action => "/upload", :enctype => "multipart/form-data"}
+					%form{:method => "POST", :action => "/", :enctype => "multipart/form-data"}
 						%input{:type => "file",:name => "thepdffile",:placeholder => "Select a file!"}
 						%button{:type => "submit"} Upload
 					%p.fallback If you don't have a file ready, you can view a sample analysis by <a href="/analyze?default=true">clicking here</a>
 			%section.container.home-questions-container
 				%article
-					%header
-						Why only small files?
+					%header#whysmall
+						Why only small files?					
 					%content
 						That's coz I don't want to keep you waiting! I'm kidding. Heroku has a time limit of 30 seconds for a request to complete.
 				%article
 					%header
 						What is this site built with?
 					%content
-						I've used <a href="#">Sinatra</a> as the web framework, and <a href="#">pdf-reader</a> for the PDF processing. The entire source is available on <a href="#">Github</a>.
+						I've used <a href="http://www.sinatrarb.com/">Sinatra</a> as the web framework, and <a href="https://github.com/yob/pdf-reader">pdf-reader</a> for the PDF processing. The entire source is available on <a href="https://github.com/rohitpaulk/pdfparser">Github</a>.
